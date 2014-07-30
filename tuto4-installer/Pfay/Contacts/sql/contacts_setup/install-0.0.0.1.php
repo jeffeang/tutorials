@@ -16,7 +16,7 @@ $table = $installer->getConnection()->newTable(
     \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
     null,
     array('identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true),
-    'Schedule Id'
+    'Contact Id'
 )->addColumn(
     'name',
     \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,

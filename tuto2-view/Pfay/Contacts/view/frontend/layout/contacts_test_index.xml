@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Core/etc/layout_single.xsd">
+    <update handle="page_one_column"/>
+    <referenceBlock name="head">
+        <action method="setTitle">
+            <argument translate="true" name="title" xsi:type="string">List of my contacts</argument>
+        </action>
+    </referenceBlock>
+    <referenceContainer name="content">
+        <block class="Magento\Framework\View\Element\Template" name="contactList" template="Pfay_Contacts::contactslist.phtml">
+         
+        </block>
+    </referenceContainer>
+</layout>

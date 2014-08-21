@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Core/etc/layout_single.xsd">
+    <referenceContainer name="content">
+        <block class="Pfay\Contacts\Block\Adminhtml\Contact" name="adminhtml.block.contacts.contact.grid.container">
+            <block class="Magento\Backend\Block\Widget\Grid" name="adminhtml.block.contacts.contact.grid" as="grid">
+                <arguments>
+                    <argument name="id" xsi:type="string">contactGrid</argument>
+                    <argument name="dataSource" xsi:type="object">Pfay\Contacts\Model\Resource\Contact\Collection</argument>
+                    <argument name="default_sort" xsi:type="string">pfay_contacts_id</argument>
+                    <argument name="default_dir" xsi:type="string">ASC</argument>
+                    <argument name="save_parameters_in_session" xsi:type="string">1</argument>
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="adminhtml.system.backup.grid.massaction" as="grid.massaction">
+                    <arguments>
+                        <argument name="massaction_id_field" xsi:type="string">id</argument>
+                        <argument name="form_field_name" xsi:type="string">ids</argument>
+                        <argument name="use_select_all" xsi:type="string">1</argument>
+                        <argument name="options" xsi:type="array">
+                            <item name="delete" xsi:type="array">
+                                <item name="label" xsi:type="string" translate="true">Delete</item>
+                                <item name="url" xsi:type="string">contacts/*/massDelete</item>
+                                <item name="confirm" xsi:type="string" translate="true">Are you sure you want to delete the selected contact(s) ?</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="adminhtml.customer.online.grid.columnSet">
+                    
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="pfay_contacts_id">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">ID</argument>
+                            <argument name="width" xsi:type="string">50px</argument>
+                            <argument name="align" xsi:type="string">right</argument>
+                            <argument name="type" xsi:type="string">number</argument>
+                            <argument name="default" xsi:type="string" translate="true">n/a</argument>
+                            <argument name="index" xsi:type="string">pfay_contacts_id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="name">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Name</argument>
+                            <argument name="default" xsi:type="string">Guest</argument>
+                            <argument name="index" xsi:type="string">name</argument>
+                        </arguments>
+                    </block>  
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="action">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Action</argument>
+                            <argument name="index" xsi:type="string">pfay_contacts_id</argument>
+                            <argument name="renderer" xsi:type="string">Magento\Customer\Block\Adminhtml\Grid\Renderer\Multiaction</argument>
+                            <argument name="sortable" xsi:type="string">0</argument>
+                            <argument name="filter" xsi:type="string">0</argument>
+                            <argument name="actions" xsi:type="array">
+                                <item name="edit" xsi:type="array">
+                                    <item name="caption" xsi:type="string" translate="true">Edit</item>
+                                    <item name="url" xsi:type="array">
+                                        <item name="base" xsi:type="string">*/*/edit</item>
+                                    </item>
+                                    <item name="field" xsi:type="string">id</item>
+                                </item>
+                                <item name="delete" xsi:type="array">
+                                    <item name="caption" xsi:type="string" translate="true">Delete</item>
+                                    <item name="url" xsi:type="array">
+                                        <item name="base" xsi:type="string">*/*/delete</item>
+                                    </item>
+                                    <item name="field" xsi:type="string">id</item>
+                                </item>
+                            </argument>
+                        </arguments>
+                    </block>                 
+                </block>
+            </block>
+        </block>
+    </referenceContainer>
+</layout>
